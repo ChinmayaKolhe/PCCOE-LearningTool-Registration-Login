@@ -115,8 +115,9 @@ app.post('/api/teacher/register', async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
+// ... [keep all your existing imports and setup] ...
 
-// Login
+// Simplified Login Route
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password, role } = req.body;
@@ -146,8 +147,7 @@ app.post('/api/login', async (req, res) => {
     res.status(200).json({
       success: true,
       message: `${role} logged in successfully`,
-      user: userData,
-      token: 'sample-token' // In production, use JWT or similar
+      user: userData
     });
 
   } catch (err) {
@@ -156,6 +156,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// ... [keep all your other routes] ...
 // Protected route example
 app.get('/api/protected', (req, res) => {
   // In a real app, you would verify the token here
